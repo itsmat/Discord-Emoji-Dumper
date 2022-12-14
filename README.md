@@ -2,8 +2,8 @@
 Discord tool to dump server stickers/icons/emojis through the use of a selfbot. Developed in Python using discord.py-self
 
 ## Features
-- [x] - [Dumper All](https://github.com/itsmat/Discord-Emoji-Dumper) - Dumper All.
-- [x] - [Dumper with ServerID](https://github.com/itsmat/Discord-Emoji-Dumper) - Dumper with ServerID.
+- [x] - [Dumper All](https://github.com/itsmat/Discord-Emoji-Dumper) - Dump all servers.
+- [x] - [Dumper with ServerID](https://github.com/itsmat/Discord-Emoji-Dumper) - Dump with ServerID.
 
 ## ScreenShot
 ![home.png](https://cdn.discordapp.com/attachments/1035898991893811212/1052655467303813221/Image.png)
