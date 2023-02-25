@@ -70,14 +70,14 @@ def transizione():
 def caricamento():
 	carattere = ['|', '/', '-', '\\']
 	for i in carattere+carattere+carattere:
-		sys.stdout.write(f"""\r{y}[{b}#{y}]{w} Caricamento... {i}""")
+		sys.stdout.write(f"""\r{y}[{b}#{y}]{w} Loading... {i}""")
 		sys.stdout.flush()
 		time.sleep(0.2)
 
 global idserver
-idserver = 'Nessun server impostato'
+idserver = 'No servers set'
 global token 
-token = 'Nessun token impostato'
+token = 'No tokens set'
 global tipodump
 tipodump = 0
 if not os.path.exists('Dumps'):
@@ -90,15 +90,15 @@ def main():
     global tipodump
     global idserver
     global token
-    impostatitolo(f"Mat Emoji Dumper {VERSIONETOOL} - Caricamento")
+    impostatitolo(f"Mat Emoji Dumper {VERSIONETOOL} - Loading")
     Anime.Fade(Center.Center(banner), Colors.green_to_red, Colorate.Vertical, time=1)
     #System.Size(160, 40)
     clear()
     impostatitolo(f"Mat Emoji Dumper {VERSIONETOOL}")
     titolohome()
     print(f"""      {y}[{b}+{y}]{g} Main:                                                                            {y}[{b}+{y}]{c} Settings:
-          {y}[{w}1{y}]{g} Emoji dumper di un server                                                        {y}[{w}10{y}]{c} Imposta id server
-          {y}[{w}2{y}]{g} Emoji dumper di tutti i server                                                   {y}[{w}11{y}]{c} Imposta client token  
+          {y}[{w}1{y}]{g} Emoji dump a server                   		                                     {y}[{w}10{y}]{c} Enter server ID
+          {y}[{w}2{y}]{g} Emoji dump all servers		                                                     {y}[{w}11{y}]{c} Enter client token  
           {y}[{w}3{y}]{g} Server Nuker                                                                    
 
                                                                                      {m}Made by Mat#3616 | github.com/itsmat
@@ -108,44 +108,44 @@ def main():
     global scelta
     scelta = input(f"""{y}[{b}#{y}]{w} : """)
     if scelta == '1' or scelta == '01':
-        if token != 'Nessun token impostato':
-            if idserver != 'Nessun server impostato':
+        if token != 'No tokens set':
+            if idserver != 'No servers set':
                 try:
                     tipodump = 1
-                    print('Il dump partirà appena invierai/riceverai un messaggio')
+                    print('The dump will start as soon as you send/receive a message')
                     client.run(token)
                 except Exception as errore:
-                    input(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} Errore [{errore}]!")
+                    input(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} Error [{errore}]!")
                     main()
             else:
-                input(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} ID Server mancante [tasto 10 nella home]!")
+                input(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} Server ID is missing [tasto 10 nella home]!")
                 main()
         else:
-            input(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} Token mancante [tasto 11 nella home]!")
+            input(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} Missing token [tasto 11 nella home]!")
             main()
     if scelta == '2' or scelta == '02':
-        if token != 'Nessun token impostato':
+        if token != 'No tokens set':
             try:
                 tipodump = 2
-                print('Il dump partirà appena invierai/riceverai un messaggio')
+                print('The dump will start as soon as you send/recieve a message')
                 client.run(token)
             except Exception as errore:
-                input(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} Errore [{errore}]!")
+                input(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} Error [{errore}]!")
                 main()
         else:
-            input(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} Token mancante [tasto 11 nella home]!")
+            input(f"{y}[{Fore.LIGHTRED_EX }!{y}]{w} Missing token [tasto 11 nella home]!")
             main()
     if scelta == '3' or scelta == '03':
         webbrowser.open_new_tab("https://github.com/itsmat/DiscordNukerTool")
         main()
     elif scelta == '10' or scelta == '010':
         transizione()
-        dioporco = input(f'''{y}[{b}#{y}]{w} Inserisci l'id del server:    ''')
+        dioporco = input(f'''{y}[{b}#{y}]{w} Enter the server id:    ''')
         idserver = dioporco
         main()
     elif scelta == '11' or scelta == '011':
         transizione()
-        diocane = input(f'''{y}[{b}#{y}]{w} Inserisci il client-token:    ''')
+        diocane = input(f'''{y}[{b}#{y}]{w} Enter client-token:    ''')
         token = diocane
         main()
     elif scelta == 'dsc' or scelta == 'discord':
@@ -178,7 +178,7 @@ async def on_message(message):
         if numeroemoji > 0:
             if not os.path.exists(cartella):
                 os.makedirs(cartella)
-        print(f'{b}Scaricando le emoji...')
+        print(f'{b}Downloading the emojis...')
         try:
             if dump == 0:
                 for emoji in server.emojis:
@@ -194,18 +194,18 @@ async def on_message(message):
                             finale = urllib.request.urlopen(request).read()
                             file.write(finale) 
                 dump = 1
-                input(f'''{g}DUMP COMPLETATO CON SUCCESSO.
+                input(f'''{g}DUMP COMPLETED SUCCESFULLY.
 
 {r}Server: {server.name}
-Emoji Scaricate: {emojipng}
-Emoji Animate Scaricate: {emojigif}
+Emoji Download: {emojipng}
+Emoji Animated Download: {emojigif}
 Path: {cartella}{w}''')
                 main()
             else:
-                input('Errore')
+                input('Error')
                 main()
         except:
-            input('Errore')
+            input('Error')
             main()
     if tipodump == 2:
         servers = 0
@@ -221,7 +221,7 @@ Path: {cartella}{w}''')
                 if numeroemoji > 0:
                     if not os.path.exists(cartella):
                         os.makedirs(cartella)
-                print(f'{b}Scaricando le emoji...')
+                print(f'{b}Downloading the emojis...')
                 try:
                     for emoji in server.emojis:
                         if emoji.animated:
@@ -236,21 +236,21 @@ Path: {cartella}{w}''')
                                 finale = urllib.request.urlopen(request).read()
                                 file.write(finale)
                 except:
-                    input('Errore')
+                    input('Error')
                     main()
             try:
-                input(f'''{g}DUMP COMPLETATO CON SUCCESSO.
+                input(f'''{g}DUMP SUCCESSFULLY COMPLETED.
 
 {r}Server: {servers}
-Emoji Scaricate: {emojipng}
-Emoji Animate Scaricate: {emojigif}
+Emoji Download: {emojipng}
+Emoji Animated Download: {emojigif}
 Path: {cartella}{w}''')
                 main()
             except:
-                input('Errore')
+                input('Error')
                 main()
         except:
-            input('Errore')
+            input('Error')
             main()
 
 main()
