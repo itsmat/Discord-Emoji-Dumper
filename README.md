@@ -6,8 +6,8 @@ Discord tool to dump server stickers/icons/emojis through the use of a selfbot. 
 - [x] - [Dumper with ServerID](https://github.com/itsmat/Discord-Emoji-Dumper) - Dump with ServerID.
 
 ## Languages
-- [x] - Italian
-- [x] - English - [gangstertoppen](https://github.com/gangstertoppen/Discord-Emoji-Dumper)
+- [x] - Italian - Official version
+- [x] - English - Translated from: [gangstertoppen](https://github.com/gangstertoppen/Discord-Emoji-Dumper)
 
 ## ScreenShot
 ![home.png](https://cdn.discordapp.com/attachments/1035898991893811212/1052655467303813221/Image.png)
